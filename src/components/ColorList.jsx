@@ -12,6 +12,7 @@ const Color = () => {
 
     const AddClr = () => {
         setClrArr([...clrArr, newClr]);
+        setNewClr('')
     }
 
     const handleEnter = (e) => {
@@ -25,21 +26,18 @@ const Color = () => {
     <div className='flex flex-col justify-center h-screen items-center'>
         <div>
         <input  type="text" 
-        className='border-solid border-4 h-10 black' 
+        className='border-double border-4 h-10 border-black	' 
         value={newClr}
         onChange={NewColor} 
         onKeyUp={handleEnter}
+        placeholder="Enter any color"
         />
         <button onClick={AddClr} >
             Add
         </button>
         </div>
-        <div className='flex' >
-            {
-                clrArr.map((item, index) => 
-                    <Pallete item={item} key={index} />
-                )
-            }
+        <div>
+            <Pallete clrArr = {clrArr} />
         </div>
     </div>
   )
